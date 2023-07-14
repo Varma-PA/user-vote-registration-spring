@@ -14,14 +14,3 @@ springdoc:
   api-docs:
     path: /api-docs
 
-
-#springfox:
-#  documentation:
-#    swaggerUi:
-#      baseUrl: /documentation
-#    openApi:
-#      v3:
-#        path: /documentation/v3/api-docs
-#    swagger:
-#      v2:
-#        path: /documentation/v2/api-docs
