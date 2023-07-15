@@ -29,7 +29,7 @@ public class User {
     @Column(name = "Email")
     private String email;
 
-    @OneToOne
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     @JoinColumn(name = "LoginID")
     private Login login;
 

@@ -1,0 +1,32 @@
+package com.achyuth.vote.restcontroller;
+
+
+import com.achyuth.vote.dto.users.CreateUserDTO;
+import com.achyuth.vote.entities.User;
+import com.achyuth.vote.services.users.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/user")
+public class UserRegistrationController {
+
+    private UserService userService;
+
+    @Autowired
+    public void setUserService(UserService userService){
+        this.userService = userService;
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<User> createUser(@RequestBody CreateUserDTO createUserDTO){
+        return new ResponseEntity<>(userService.createUser(createUserDTO), HttpStatus.OK);
+    }
+
+
+}
