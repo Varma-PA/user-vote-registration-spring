@@ -18,10 +18,6 @@ public class LoginService {
     }
 
     public void createLogin(LoginDTO loginDTO){
-        Login login = new Login();
-        login.setUsername(loginDTO.getUsername());
-        login.setPassword(loginDTO.getPassword());
-        System.out.println(login.toString());
-        loginRepository.save(login);
+
     }
 }
