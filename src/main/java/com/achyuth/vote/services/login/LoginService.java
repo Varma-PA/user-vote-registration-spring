@@ -2,6 +2,7 @@ package com.achyuth.vote.services.login;
 
 import com.achyuth.vote.dto.LoginDTO;
 import com.achyuth.vote.entities.Login;
+import com.achyuth.vote.entities.User;
 import com.achyuth.vote.repository.LoginRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,13 @@ public class LoginService {
         this.loginRepository = loginRepository;
     }
 
-    public void createLogin(LoginDTO loginDTO){
+    public User createLogin(User user, Login login){
+
+        login.setUser(user);
+
+        loginRepository.save(login);
+
+        return user;
 
     }
 }

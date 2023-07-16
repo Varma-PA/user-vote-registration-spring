@@ -13,6 +13,7 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
+@Data
 public class User {
 
     @Id
@@ -29,16 +30,17 @@ public class User {
     @Column(name = "Email")
     private String email;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @JoinColumn(name = "LoginID")
-    private Login login;
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+//    private Login login;
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return userId == user.userId && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email) && Objects.equals(login, user.login);
+        return Objects.equals(userId, user.userId) && Objects.equals(firstName, user.firstName) && Objects.equals(lastName, user.lastName) && Objects.equals(email, user.email);
     }
 
     @Override

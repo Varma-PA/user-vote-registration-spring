@@ -23,10 +23,10 @@ public class LoginRestController {
         this.loginService = loginService;
     }
 
-    @PostMapping
-    public ResponseEntity<String> testLoginFunction(@RequestBody LoginDTO loginDTO){
-        loginService.createLogin(loginDTO);
-        return new ResponseEntity<>("Created", HttpStatus.OK);
-    }
+//    @PostMapping
+//    public ResponseEntity<String> testLoginFunction(@RequestBody LoginDTO loginDTO){
+//        loginService.createLogin(loginDTO);
+//        return new ResponseEntity<>("Created", HttpStatus.OK);
+//    }
 
 }

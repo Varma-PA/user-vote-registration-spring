@@ -5,6 +5,7 @@ import com.achyuth.vote.entities.Login;
 import com.achyuth.vote.entities.User;
 import com.achyuth.vote.repository.LoginRepository;
 import com.achyuth.vote.repository.UserRepository;
+import com.achyuth.vote.services.login.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +15,8 @@ public class UserService {
     private UserRepository userRepository;
 
     private LoginRepository loginRepository;
+
+    private LoginService loginService;
 
     @Autowired
     public void setUserRepository(UserRepository userRepository){
@@ -25,6 +28,11 @@ public class UserService {
         this.loginRepository = loginRepository;
     }
 
+    @Autowired
+    public void setLoginService(LoginService loginService) {
+        this.loginService = loginService;
+    }
+
     public User createUser(CreateUserDTO createUserDTO){
 
         Login login = new Login();
@@ -33,9 +41,7 @@ public class UserService {
         user.setFirstName(createUserDTO.getFirstName());
         user.setLastName(createUserDTO.getLastName());
         user.setEmail(createUserDTO.getEmail());
-//        login.setUser(user);
-        user.setLogin(login);
-        return userRepository.save(user);
+        return loginService.createLogin(user, login);
     }
 
 

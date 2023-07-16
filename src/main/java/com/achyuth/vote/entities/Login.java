@@ -19,12 +19,13 @@ public class Login {
     @Column(name = "LoginId")
     private Integer loginId;
 
+//    @Column(name = "UserName")
+//    private String username;
 
     @Column(name = "Password")
     private String password;
 
-    @OneToOne
-    @JoinColumn(name = "UserId")
+    @OneToOne(cascade = CascadeType.ALL)
     private User user;
 
     @Override
